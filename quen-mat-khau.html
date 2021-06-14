@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Quên mật khẩu</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="../fontawesome-free-5.15.2-web/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body ng-app="quenmk">
+    <main class="container mt-3 mb-3" ng-controller="myfg">
+        <form class="col-5 m-auto border border-warning mt-5 shadow rounded" name="formdk">
+            <div class="bg-warning m-0 p-1 text-center mx-n3 text-white h6"><img src="images/logo.png" class="w-25 m-auto" alt=""> Forgot Password</div>
+                    <div class="form-group mt-2 col-12">
+                        <!-- <span class="m-auto">Tạo tài khoản FPT Polytechnic</span> -->
+                    </div>
+                    <div class="form-group text-center col-9 m-auto p-3">
+                        <span class="font-weight-bold h4">
+                            Forgot password from
+                        </span>
+                        <span class="font-weight-bold h4">
+                            fpt.edu.vn
+                        </span>
+                        <span class="font-weight-none">
+                            <p>to continue to <a href="#" class="font-weight-bold">poly.edu.vn</a></p> 
+                        </span>
+                    </div>
+                    <div class="form-group col-12">
+                        <!-- <label for="username">Username</label> -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" require ng-minlength="4" ng-model="u" name="u" id="username" placeholder="Nhập username hoặc email của bạn">
+                        </div>
+                        <p ng-show="formdk.u.$invalid" id="tb" class="badge badge-danger font-italic">
+                            User có ít nhất 4 kí tự
+                        </p>
+                        <span class="" id="tb1"></span>
+                    </div>
+                    
+                    <div class="form-group custom-control custom-checkbox mb-3 ml-3 col-12">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <a href="dang-nhap.html" class="float-right mr-3">Đăng nhập</a>
+                    </div>
+                    <div class="form-group col-6 m-auto">
+                        <button class="btn btn-lg btn-success btn-block text-uppercase" ng-click="fg()" type="submit">Gửi</button>
+                    </div>
+                </div>
+                <hr>
+        </form>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  <script src="db/Students.js"></script>
+  <script>
+    var app = angular.module("quenmk",[]);
+        app.controller("myfg",myfunc);
+        function myfunc($scope){
+            $scope.fg = function(){
+                var u = $scope.u;
+                // var p = $scope.p;
+                var tc=false;
+                var motsv;
+                for(var i=0; i< listsv.length; i++){
+                    motsv = listsv[i];
+                    if((u==motsv.username || u== motsv.email)){
+                        tc=true;
+                        break;
+                    }
+                }
+                if(tc){
+                    sessionStorage.setItem("password", motsv.password);
+                    alert("Mật khẩu của bạn là: " + motsv.password);
+                    document.getElementById("tb1").innerHTML =  'Mật khẩu của bạn là: ' + motsv.password;
+                }else{
+                    alert("Tài khoản không tồn tại\n* Hãy chắc rằng bạn nhập đúng (in hoa, số...)")
+                }
+            }
+        }
+  </script>
+</html>

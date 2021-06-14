@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Đổi mật khẩu</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="../fontawesome-free-5.15.2-web/css/all.css">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.eot">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.svg">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.ttf">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.woff">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body ng-app="myapp">
+    <main class="container mt-3 mb-3" ng-controller="myctrl">
+        <form class="col-5 m-auto border border-warning mt-5 shadow rounded">
+            <div class="bg-warning m-0 p-1 text-center mx-n3 text-white h6"><img src="images/logo.png" class="w-25 m-auto" alt=""> Change Password</div>
+                    <div class="form-group mt-2 col-12">
+                        <!-- <span class="m-auto">Tạo tài khoản FPT Polytechnic</span> -->
+                    </div>
+                    <div class="form-group text-center col-12 m-auto p-3">
+                        <span class="font-weight-bold h4">
+                            Change password of account
+                        </span>
+                        <span class="font-weight-bold h4">
+                            <a href="#">fpt.edu.vn</a>
+                        </span>
+                        <span class="font-weight-none">
+                            <!-- <p>to continue to <a href="#" class="font-weight-bold">poly.edu.vn</a></p>  -->
+                        </span>
+                    </div>
+                    <div class="form-group col-12">
+                        <!-- <label for="username">Username</label> -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control bg-warning" ng-model="u" id="username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <!-- <label for="username">Username</label> -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            </div>
+                            <input type="password" class="form-control bg-warning" ng-model="p" id="matkhau" placeholder="Nhập mật khẩu cũ">
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <!-- <label for="matkhau">Mật khẩu</label> -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control bg-warning" ng-model="pm"  placeholder="Mật khẩu mới">                       </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <!-- <label for="matkhau">Mật khẩu</label> -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control bg-warning" ng-model="pm1"  placeholder="Xác nhận mật khẩu">                       </div>
+                    </div>
+                    <div class="form-group custom-control custom-checkbox mb-3 ml-3 col-12">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <a href="dang-nhap.html" class="float-right mr-3">Đăng nhập</a>
+                    </div>
+                    <div class="form-group col-6 m-auto">
+                        <button class="btn btn-lg btn-success btn-block text-uppercase" ng-click="dmk()" type="submit">Gửi</button>
+                    </div>
+                </div>
+                <hr>
+                <!-- <p class="m-auto pt-1 pb-4">To continue, PS14046 will share your name, email address, language preference, and profile picture with poly.edu.vn. Before using this app, you can review poly.edu.vn’s <a href="#">privacy policy</a> and <a href="#">terms of service</a>.</p> -->
+        </form>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  <script src="db/Students.js"></script>
+  <script>
+    var app = angular.module("myapp",[]);
+    app.controller("myctrl",function($scope){
+    // $scope.student={};
+    //  $scope.index = -1;
+     $scope.dmk = function(){
+                var u = $scope.u;
+                var p = $scope.p;
+                var pm = $scope.pm;
+                var pm1 = $scope.pm1;
+                var tc=false;
+                var motsv;
+                for(var i=0; i< listsv.length; i++){
+                    motsv = listsv[i];
+                    var tkmk = ((u==motsv.email || u==motsv.username) && p==motsv.password);
+                    var mkm = (pm == pm1);
+                    if(tkmk){
+                        // tc=true;
+                        if(mkm){
+                            tc=true;
+                        }
+                        else{
+                            alert("Xác nhận mật khẩu không chính xác !\n* Vui lòng nhập lại !!!")
+                        }
+                        break;
+                    }
+                    else{
+                        alert("Tài khoản hoặc mật khẩu không chính xác !");
+                        break;
+                    }
+                }
+                if(tc){ 
+                    alert("Đổi mật khẩu thành công !");
+                }
+            }
+    })
+</script>
+</html>

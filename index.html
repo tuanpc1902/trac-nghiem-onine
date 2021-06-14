@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Assignment</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/logo.png" type="image/icon type" />
+  <link rel="stylesheet" href="../fontawesome-free-5.15.2-web/css/all.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.eot">
+  <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.svg">
+  <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.ttf">
+  <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.woff">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="https://code.angularjs.org/1.8.0/angular-route.min.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+  <div class="container">
+    <div class="row w-100 m-auto border border-warning">
+      <header class="row m-auto w-100">
+        <header class="row w-100 m-auto bg-light">
+          <div class="col-8 m-auto">
+            <h1>Online Traning</h1>
+            <h5>The center point of the professional programming</h5>
+          </div>
+          <div class="col-4 float-right m-auto">
+            <img src="images/logo.png" class="w-100" alt="" />
+          </div>
+        </header>
+        <header class="row m-auto w-100">
+          <div class="row w-100 m-auto">
+            <nav class="row w-100 m-auto">
+              <nav class="navbar navbar-expand-lg navbar-light bg-warning w-100">
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav w-100">
+                    <li class="nav-item active">
+                      <a class="nav-link text-dark" href="index.html"><i class="fa fa-home" aria-hidden="true"></i> FPT
+                        Polytechnic<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-dark" href="#!gioi-thieu"><i class="fa fa-info" aria-hidden="true"></i>
+                        Giới
+                        thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-dark" href="#!lien-he"><i class="fa fa-phone" aria-hidden="true"></i> Liên
+                        hệ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-dark" href="#!gopy"><i
+                          class="fa fa-comment" aria-hidden="true"></i> Góp
+                        ý</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-dark" href="#!hoidap"><i class="fa fa-question" aria-hidden="true"></i> Hỏi
+                        đáp</a>
+                    </li>
+                    <li class="nav-item dropdown ml-auto">
+                      <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        {{hoten}}
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="dang-nhap.html">Đăng nhập</a>
+                        <a class="dropdown-item" href="quen-mat-khau.html">Quên mật khẩu</a>
+                        <a class="dropdown-item" href="dang-ky.html">Đăng ký thành viên</a>
+                        <hr />
+                        <a class="dropdown-item" href="dang-xuat">Đăng xuất</a>
+                        <a class="dropdown-item" href="doi-mat-khau.html">Đổi mật khẩu</a>
+                        <a class="dropdown-item btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                          href="">Cập nhật hồ sơ</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </nav>
+          </div>
+        </header>
+        <!--Cập nhật hồ sơ-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  <i class="fa fa-edit"></i> Cập nhật hồ sơ
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row col-12 m-auto">
+                  <div class="form-group col-12 m-auto">
+                    <div class="col-9 m-auto">
+                      <input type="image" src="images/logo.png" alt="" />
+                    </div>
+                  </div>
+                  <div class="form-group col-12">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" ng-model="user" id="username" readonly 
+                        placeholder="{{hoten}}" />
+                    </div>
+                  </div>
+                  <div class="form-group col-12">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                      </div>
+                      <input type="text" class="form-control" ng-model="sodt" id="sodt"
+                        placeholder="{{sodt}}" />
+                    </div>
+                  </div>
+                  <div class="form-group col-12">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                      </div>
+                      <input type="email" class="form-control" id="email" placeholder="{{email}}" />
+                    </div>
+                  </div>
+                  <div class="form-group col-12">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                      </div>
+                      <input type="date" class="form-control" name="" id="" value="" placeholder="{{birthday}}" />
+                    </div>
+                  </div>
+                  <div class="form-group col-12">
+                    <div class="input-group">
+                      <div class="input-group-prepend"></div>
+                      <textarea class="w-100 p-2" name="" id="" cols="30" rows="3"
+                        placeholder="Địa chỉ của bạn !"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                  Hủy
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Lưu thay đổi
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/cập nhật hồ sơ-->
+      </header>
+    </div>
+    <div class="row w-100 m-auto">
+      <article class="col-sm-9 w-100 p-0" ng-view>
+        <div class="row w-100 m-auto">
+          <div class="listmonhoc1" ng-include="'mon-hoc.html'"></div>
+        </div>
+      </article>
+      <aside class="col-sm-3 w-100 mt-2">
+        <div class="listmonhoc" ng-include="'cac-mon-hoc.html'"></div>
+      </aside>
+    </div>
+    <footer class="row m-auto w-100 bg-warning border border-warning">
+      <p class="m-auto text-center text-black">
+        PS14046 - Phạm Công Tuấn <br />
+        Email: {{email}}
+      </p>
+    </footer>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+<script src="db/Subjects.js"></script>
+<script src="js/thong-tin.js"></script>
+<!-- <script src="db/Students.js"></script> -->
+<script>
+  var app = angular.module("myapp", ["ngRoute"]);
+  app.controller("myctrl", function ($scope, $http) {
+    // thông tin user
+    var ht = sessionStorage.getItem("hoten");
+    if (ht != "") {
+      $scope.hoten = ht;
+    }
+    var em = sessionStorage.getItem("email");
+    if (em != "") {
+      $scope.email = em;
+    }
+    var dt = sessionStorage.getItem("sodt");
+    if (dt != "") {
+      $scope.sodt = dt;
+    }
+    var sn = sessionStorage.getItem("birthday");
+    if (sn != "") {
+      $scope.birthday = sn;
+    }
+    // các môn học
+    $scope.cacmonhoc = [];
+    $http.get("db/Subjects.js").then(
+      function (d) {
+        $scope.cacmonhoc = d.data;
+      },
+      function (d) {
+        alert("Lỗi");
+      }
+    );
+    $scope.start = 0;
+    $scope.next = function () {
+      if ($scope.start == $scope.cacmonhoc.length - 2) {
+        $scope.start = 0;
+      }
+      $scope.start + 2 <= $scope.cacmonhoc.length ? ($scope.start += 2) : "";
+    };
+    $scope.prev = function () {
+      $scope.start - 2 >= 0 ? ($scope.start -= 2) : "";
+    };
+    $scope.last = function () {
+      $scope.start = $scope.cacmonhoc.length - 2;
+    };
+    $scope.first = function () {
+      $scope.start = 0;
+    };
+  });
+  app.config(function ($routeProvider) {
+    $routeProvider
+      // .when("/", {templateUrl:"index.html"})
+      .when("/gioi-thieu", { templateUrl: "gioi-thieu.html" })
+      .when("/lien-he", { templateUrl: "lien-he.html" })
+      .when("/hoidap", { templateUrl: "hoi-dap.html" })
+      .when("/gopy", {templateUrl: "gopy.html", controller: "gopy"})
+      .when("/trac-nghiem/:idMH/:tenMH", {templateUrl: "trac-nghiem.html", controller: "tnctrl",})
+      .otherwise({ templateUrl: "mon-hoc.html"});
+  });
+  app.controller("tnctrl", function ($scope, $http, $routeParams, $interval) {
+    $scope.caccauhoi = [];
+    $scope.idMH = $routeParams.idMH;
+    $scope.tenMH = $routeParams.tenMH;
+    $http.get("db/Quizs/" + $scope.idMH + ".js").then(
+      function (d) {
+        $scope.caccauhoi = d.data;
+      },
+      function (d) {
+        alert("Lỗi");
+      }
+    );
+    $scope.diem=0;
+    $scope.start = 0;
+    $scope.stt = 1;
+    $scope.next = function () {
+      if($scope.start === $scope.caccauhoi.length - 1){
+        alert("Bạn đang ở cuối !");
+        return;
+      }
+      if ($scope.start == $scope.caccauhoi.length - 2) {
+        $scope.start = 0;
+       
+      }
+      $scope.start + 2 <= $scope.caccauhoi.length ? ($scope.start += 2) : "";
+      $scope.stt += 1;
+    };
+    $scope.prev = function () {
+      if($scope.start === 0){
+        alert("Bạn đang ở đầu !");
+        return;
+      }
+      $scope.start - 2 >= 0 ? ($scope.start -= 2) : "";
+      $scope.stt -= 1;
+    };
+    $scope.last = function () {
+      $scope.start = $scope.caccauhoi.length - 1;
+      $scope.stt = $scope.caccauhoi.length ;
+    };
+    $scope.first = function () {
+      $scope.start = 0;
+      $scope.stt = 1;
+    };
+    $scope.time = new Date();
+    $interval(function () {
+      $scope.time = new Date();
+    },1000);
+    $scope.tinhDiem = function () {
+      var k = $('input[name=ketqua]').val();
+      var d = $('input[name=marks]').val();
+      var ans = $('input[name=pa]:checked').val();
+      if(ans === k){
+        $scope.diem += Number(d);
+        document.getElementById("dung").style.display = "block";
+        document.getElementById("sai").style.display = "none";
+        // $scope.next(); 
+
+      }
+      else{
+        document.getElementById("sai").style.display = "block";
+        document.getElementById("dung").style.display = "none";
+      }
+    }
+  });
+  
+  app.controller("monhoc", function ($scope, $http) {
+    $scope.cacmonhoc = [];
+    $http.get("db/Subjects.js").then(
+      function (d) {
+        $scope.cacmonhoc = d.data;
+      },
+      function (d) {
+        alert("Lỗi");
+      });
+
+  });
+  app.controller("gopy", function ($scope){
+    var tc = false;
+    $scope.click = function(){
+
+    if($scope.gopy == null){
+      alert("Vui lòng nhập ý kiến của bạn !");
+    }
+    else{
+     alert("Ý kiến của bạn đã được gửi đi");
+    }
+    // if(tc){
+    //   $scope.click = function(){
+    //         alert("Ý kiến của bạn đã được gửi đi");
+    // }
+    }
+  })
+  app.controller("monhoc", function ($scope, $http){
+    $scope.cacmonhoc = [];
+    $scope.start = 0;
+    $scope.next = function () {
+      $scope.st += 6;
+    }
+    $scope.pre = function () {
+      $scope.st -= 6;
+    }
+    $http.get("db/Subjects.js").then(function (d) {
+      $scope.cacmonhoc = d.data;
+    });
+
+  });
+  
+</script>
+
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="icon" href="images/icon-title.JPG" type="image/icon type">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+    <body ng-app="myapp" ng-controller="myctrl">
+      <div class="card mt-2" ng-repeat="ch in caccauhoi | limitTo:1:start">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-9">
+                <span class="float-left">Câu số {{stt}}: {{ch.Text}}</span>
+              </div>
+              <div class="col-3">
+                <span class="float-right">{{time | date: 'hh:mm:ss a'}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+              <p class="card-text" ng-repeat="pa in ch.Answers">
+                  <input type="radio" name="pa" ng-click="tinhDiem()" id="chon" value="{{pa.Id}}"> {{pa.Text}}
+                  <input type="hidden" name="ketqua" value="{{ch.AnswerId}}">
+              </p>
+          </div>
+          <input type="hidden" value="{{ch.Marks}}" name="marks">
+          <div class="card-footer text-muted">
+            <div class="row m-auto">
+              <div class="col-6">
+                <div class="float-left">
+                  <div style="display:none;" id="dung">
+                    <i class="fa fa-check text-success"></i> Chúc mừng, bạn đã chọn đúng !
+                  </div>
+                  <div style="display:none;" id="sai">
+                    <i class="fa fa-close text-danger"></i> Rất tiếc, bạn đã chọn sai ! Hãy chọn lại !
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <span class="float-right">
+                  Điểm câu hỏi: {{ch.Marks}} |
+                  Điểm bạn có: {{diem}}/80
+                </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row mt-2">
+          <nav aria-label="Page navigation example" class="m-auto">
+              <ul class="pagination">
+                <li class="page-item mr-2">
+                  <a class="page-link" href="" aria-label="Previous" ng-click="first()">
+                    <span aria-hidden="true">&laquo;&laquo;</span>
+                    <span class="sr-only">First</span>
+                  </a>
+                </li>
+                <li class="page-item mr-2">
+                  <a class="page-link" href="" aria-label="Previous" ng-click="prev()">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li>
+                <li class="page-item mr-2">
+                  <a class="page-link" href="" aria-label="Next" ng-click="next()">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="" aria-label="Next" ng-click="last()">
+                    <span aria-hidden="true">&raquo;&raquo;</span>
+                    <span class="sr-only">Last</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  <script>
+  //   app.controller("myctrl", function ($scope, $http) {
+  //   // thông tin user
+  //   var mh = sessionStorage.getItem("monhoc");
+  //   if (mh != "") {
+  //     $scope.monhoc = mh;
+  //   }
+  // });
+</script>
+</html>
